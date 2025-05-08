@@ -6,6 +6,8 @@
 
 请补全下面的函数，对学生成绩字典进行各种操作。
 """
+from unittest import case
+
 
 def student_dict_operations(students_dict, operation, *args):
     """
@@ -20,4 +22,19 @@ def student_dict_operations(students_dict, operation, *args):
     - 根据操作返回不同结果
     """
     # 请在下方编写代码
-    pass 
+    match operation:
+        case "add":
+            name, score = args
+            students_dict[name] = score
+        case "remove":
+            name = args[0]
+            del students_dict[name]
+        case "update":
+            name, score = args
+            students_dict[name] = score
+        case "get":
+            name = args[0]
+            return students_dict[name]
+        case _:
+            print("null")
+    return students_dict

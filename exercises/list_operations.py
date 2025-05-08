@@ -7,9 +7,10 @@
 请补全下面的函数，对学生列表进行各种操作。
 """
 
+
 def student_list_operations(students, operation, *args):
     """
-    对学生列表进行操作
+    对学生列表["张三", "李四", "王五"]进行操作
     
     参数:
     - students: 学生列表
@@ -20,4 +21,16 @@ def student_list_operations(students, operation, *args):
     - 操作后的学生列表
     """
     # 请在下方编写代码
-    pass 
+    match operation:
+        case "add":
+            students.append(args[0])
+        case "remove":
+            if args[0] in students:
+                students.remove(args[0])
+        case "update":
+            old, new = args
+            if old in students:
+                students[students.index(old)] = new
+        case _:
+            print("null")
+    return students
